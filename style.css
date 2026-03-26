@@ -52,17 +52,22 @@ li {
 @media (max-width: 768px) {
     #layout {
         grid-template-columns: 1fr;
+        padding: 0 10px; /* optional: add some horizontal padding */
     }
 
     .left, .right {
         order: 2;
+        padding: 20px 0; /* optional: reduce padding on mobile */
     }
 
     .center {
         order: 1;
+        max-width: 100%; /* allow full width */
+        width: 100%;     /* fill container */
+        padding: 20px 0; /* optional: adjust vertical padding */
+        margin: 0;       /* remove auto centering */
     }
 }
-
 
 /* MARQUEE BASE */
 .marquee {
