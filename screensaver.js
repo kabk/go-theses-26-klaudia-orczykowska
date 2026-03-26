@@ -10,7 +10,7 @@ function resetTimer() {
 
     if (screensaverActive) stopScreensaver();
 
-    inactivityTimer = setTimeout(startScreensaver, 10000);
+    inactivityTimer = setTimeout(startScreensaver, 30000);
 }
 
 ["mousemove", "scroll", "keydown", "click"].forEach(event => {
