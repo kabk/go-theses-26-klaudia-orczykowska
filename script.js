@@ -11,3 +11,5 @@ fetch('content.html')
         document.getElementById('main-content').innerHTML = "Error loading content.";
         console.error(err);
     });
+
+// =====================

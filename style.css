@@ -1,11 +1,10 @@
-/* ===== LAYOUT ===== */
-
+/* ===== EXISTING (unchanged) ===== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
-/* GRID SYSTEM */
 #layout {
     display: grid;
     grid-template-columns: 200px 1fr 200px;
@@ -14,37 +13,98 @@ body {
     padding-bottom: 30px;
 }
 
-/* COLUMNS */
 .left {
-    background: #f0f0f0;
-    padding: 30px 10px 30px 10px;
+    padding: 30px 10px;
 }
 
 .center {
     max-width: 600px;
-    padding: 30px 0px 30px 0px;
+    padding: 30px 0;
     width: 100%;
     margin: 0 auto;
 }
 
 .right {
-    background: #f9f9f9;
-    padding: 30px 10px 30px 10px;
+    padding: 30px 10px;
 }
 
-/* TEXT STYLE (slightly old-web vibe) */
-h1, h3 {
-    margin-top: 0;
+
+/* TEXT BLOCKS */
+.content-flow p {
+    margin: 40px 0;
+    line-height: 1.6;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+/* IMAGES / GIFS */
+.content-flow img {
+    width: 100%;
+    margin: 20px 0;
+    display: block;
+    transition: transform 0.3s;
 }
 
-li {
-    margin-bottom: 8px;
-    cursor: pointer;
+/* subtle randomness */
+.content-flow img:nth-child(odd) {
+    transform: rotate(-2deg) scale(0.98);
+}
+
+.content-flow img:nth-child(even) {
+    transform: rotate(2deg) scale(1.02);
+}
+
+/* DIVIDERS */
+.content-flow hr {
+    margin: 60px 0;
+    border: none;
+    border-top: 1px solid black;
+}
+
+/* ===== FLOATING ELEMENTS ===== */
+
+/* ===== IMAGE VARIATIONS ===== */
+
+.content-flow img {
+    max-width: 100%;
+    margin: 30px 0;
+    display: block;
+}
+
+/* LEFT SIDE IMAGE */
+.content-flow img.left-img {
+    width: 60%;
+    margin-left: -80px; /* pushes into left column */
+}
+
+/* RIGHT SIDE IMAGE */
+.content-flow img.right-img {
+    width: 60%;
+    margin-left: auto;
+    margin-right: -80px; /* pushes into right column */
+}
+
+/* SMALL INLINE CHAOS */
+.content-flow img.small {
+    width: 150px;
+}
+
+/* ROTATION (subtle chaos) */
+.content-flow img:nth-of-type(odd) {
+    transform: rotate(-2deg);
+}
+
+.content-flow img:nth-of-type(even) {
+    transform: rotate(2deg);
+}
+
+.image-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.image-row img {
+    width: 48%;
 }
 
 /* ===== MOBILE ===== */
@@ -52,24 +112,21 @@ li {
 @media (max-width: 768px) {
     #layout {
         grid-template-columns: 1fr;
-        padding: 0 10px; /* optional: add some horizontal padding */
+        padding: 0 10px;
     }
 
     .left, .right {
         order: 2;
-        padding: 20px 0; /* optional: reduce padding on mobile */
     }
 
     .center {
         order: 1;
-        max-width: 100%; /* allow full width */
-        width: 100%;     /* fill container */
-        padding: 20px 0; /* optional: adjust vertical padding */
-        margin: 0;       /* remove auto centering */
+        max-width: 100%;
+        margin: 0;
     }
 }
 
-/* MARQUEE BASE */
+/* ===== MARQUEE (unchanged) ===== */
 .marquee {
     position: fixed;
     left: 0;
@@ -77,50 +134,30 @@ li {
     overflow: hidden;
     white-space: nowrap;
     z-index: 9998;
-    font-size: 42px;
-    background: black;
+    font-size: 21px;
+    background: blue;
     color: white;
 }
 
-/* TOP + BOTTOM POSITION */
-.marquee.top {
-    top: 0;
-}
+.marquee.top { top: 0; }
+.marquee.bottom { bottom: 0; }
 
-.marquee.bottom {
-    bottom: 0;
-}
-
-/* MOVING TEXT */
 .marquee-inner-top {
     display: inline-block;
-    white-space: nowrap;
-    animation: scroll 30s linear infinite;
+    animation: scroll 15s linear infinite;
 }
 
 .marquee-inner-bottom {
     display: inline-block;
-    white-space: nowrap;
-    animation: scroll 30s linear reverse infinite;
+    animation: scroll 15s linear reverse infinite;
 }
 
-/* duplicate text for seamless loop */
-.marquee-inner span {
-    padding-right: 50px;
-}
-
-/* ANIMATION */
 @keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
-/* ===== SCREENSAVER ===== */
-
+/* ===== SCREENSAVER (UNCHANGED) ===== */
 #screensaver {
     position: fixed;
     inset: 0;
@@ -130,13 +167,11 @@ li {
     z-index: 9999;
 }
 
-/* TEXT */
 #sentence-box {
     font-size: 10vw;
     text-align: center;
 }
 
-/* STROBE */
 #screensaver.dark {
     background: black;
     color: white;
@@ -145,4 +180,13 @@ li {
 #screensaver.light {
     background: white;
     color: black;
+}
+
+/* ===== TEXT STYLES ===== */
+
+.title {
+    font-size: 42px;
+    color: red;
+    font-family: Adobe Garamound;
+    text-align: center;
 }
