@@ -143,39 +143,33 @@ body {
 @media (max-width: 768px) {
     #layout {
         grid-template-columns: 1fr;
-        padding-top: 60px; /* match top marquee height */
-        padding-bottom: 60px; /* match bottom marquee height */
-    }
-
-    .left, .right {
-        order: 1;
+        padding-left: 10px;    /* left margin */
+        padding-right: 20px;   /* right margin */
+        padding-top: 80px;     /* space for top marquee */
+        padding-bottom: 80px;  /* space for bottom marquee */
+        box-sizing: border-box; /* ensures padding doesn't cause overflow */
     }
 
     .center {
-        order: 2;
+        margin: 0 auto;
+        padding-left: 10px;    /* extra small padding */
+        padding-right: 10px;
     }
 
-    .image-row {
-        flex-direction: row;
-    }
-
-    .image-row img {
-        flex: 1;
-        max-width: 50%;
-    }
     .gif-column {
-        width: 100%;          /* full screen width */
+        width: 100%;
+        display: flex;
         flex-direction: column;
-        justify-content: center;  /* vertical center on mobile */
-        align-items: center;      /* horizontal center */
-        margin: 0 auto;           /* center container */
-        padding: 0;
-        gap: 15px;
-        height: auto;             /* let it shrink instead of filling left column */
+        justify-content: flex-start; /* don't center vertically */
+        align-items: center;        /* horizontal center */
+        gap: 10px;
+        margin: 0 auto;
     }
 
     .gif-item {
-        max-width: 80%;       /* fit nicely on small screens */
+        max-width: 80%;
+        height: auto;
+        display: block;
     }
 }
 
