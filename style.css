@@ -201,3 +201,7 @@ body {
     font-family: Adobe Garamound;
     text-align: center;
 }
+
+.bold {
+font-weight: bold;
+}
