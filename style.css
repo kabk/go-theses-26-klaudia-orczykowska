@@ -32,7 +32,7 @@ body {
 /* TEXT BLOCKS */
 .content-flow p {
     margin: 40px 0;
-    line-height: 1.6;
+    /* line-height: 1.6; */
 }
 
 /* IMAGES / GIFS */
@@ -92,6 +92,13 @@ body {
 
 .content-flow img:nth-of-type(even) {
     transform: rotate(2deg);
+}
+
+/* NORMAL images: no rotation, no scaling */
+.content-flow img.normal {
+    transform: none !important;
+    width: auto;       /* optional, keeps natural size */
+    max-width: 100%;
 }
 
 .image-row {
@@ -204,4 +211,13 @@ body {
 
 .bold {
 font-weight: bold;
+}
+
+.center-blue {
+    font-size: 42px;
+    font-family: adobe garamound;
+    line-height: 80%;
+    color: blue;
+    font-weight: bold;
+    text-align: center;
 }
