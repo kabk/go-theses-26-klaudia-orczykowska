@@ -143,7 +143,8 @@ body {
 @media (max-width: 768px) {
     #layout {
         grid-template-columns: 1fr;
-        padding: 0 10px;
+        padding-top: 60px; /* match top marquee height */
+        padding-bottom: 60px; /* match bottom marquee height */
     }
 
     .left, .right {
