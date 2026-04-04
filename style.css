@@ -1,4 +1,8 @@
 /* ===== EXISTING (unchanged) ===== */
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -36,6 +40,24 @@ body {
 }
 
 /* IMAGES / GIFS */
+
+.gif-column {
+    display: flex;
+    flex-direction: column;    /* stack vertically */
+    align-items: center;       /* horizontal center */
+    justify-content: flex-start; /* top of column */
+    gap: 20px;
+    height: 100%;              /* full height of column */
+}
+
+/* GIF item styling */
+.gif-item {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transform: none !important;
+}
+
 .content-flow img {
     width: 100%;
     margin: 20px 0;
@@ -125,13 +147,11 @@ body {
     }
 
     .left, .right {
-        order: 2;
+        order: 1;
     }
 
     .center {
-        order: 1;
-        max-width: 100%;
-        margin: 0;
+        order: 2;
     }
 
     .image-row {
@@ -141,6 +161,20 @@ body {
     .image-row img {
         flex: 1;
         max-width: 50%;
+    }
+    .gif-column {
+        width: 100%;          /* full screen width */
+        flex-direction: column;
+        justify-content: center;  /* vertical center on mobile */
+        align-items: center;      /* horizontal center */
+        margin: 0 auto;           /* center container */
+        padding: 0;
+        gap: 15px;
+        height: auto;             /* let it shrink instead of filling left column */
+    }
+
+    .gif-item {
+        max-width: 80%;       /* fit nicely on small screens */
     }
 }
 
