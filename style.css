@@ -234,20 +234,38 @@ body {
 .title {
     font-size: 42px;
     color: red;
-    font-family: Adobe Garamound;
+    font-family: Garamond, Times New Roman, serif;
     text-align: center;
     font-weight: bold;
+}
+
+.center-blue {
+    font-size: 42px;
+    font-family: Garamond, Times New Roman, serif;
+    line-height: 80%;
+    color: blue;
+    font-weight: bold;
+    text-align: center;
+}
+
+.comic {
+font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 31px;
+
+}
+
+.italic {
+    font-style: italic;
+}
+
+.big {
+    font-size: 42px;
 }
 
 .bold {
 font-weight: bold;
 }
 
-.center-blue {
-    font-size: 42px;
-    font-family: adobe garamound;
-    line-height: 80%;
-    color: blue;
-    font-weight: bold;
+.center {
     text-align: center;
 }
