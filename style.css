@@ -152,6 +152,7 @@ html, body {
     display: block;
 }
 
+
 /* ===== TEXT STYLES ===== */
 
 .title {
@@ -292,6 +293,8 @@ html, body {
         width: calc(50% - 5px);
         height: auto;
     }
+
+
 
     /* FULL-WIDTH WRAPPER NOW INSIDE CENTERED COLUMN */
     .full-width-wrapper {
