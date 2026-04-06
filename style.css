@@ -152,7 +152,6 @@ html, body {
     display: block;
 }
 
-
 /* ===== TEXT STYLES ===== */
 
 .title {
@@ -246,76 +245,71 @@ html, body {
 
 @media (max-width: 768px) {
 
-    /* ===== LAYOUT ===== */
     #layout {
-        padding: 40px 15px;
-        box-sizing: border-box;
-        overflow-x: hidden;
+        padding: 40px 15px;  /* reduce top padding slightly for mobile */
+        box-sizing: border-box; /* ensure padding included in width calculations */
+        overflow-x: hidden;    /* prevent accidental horizontal scroll */
     }
 
-    /* ===== INTRO IMAGE FIX ===== */
-    #intro-screen .intro-img {
-        width: auto !important;        /* natural width */
-        max-width: 400px !important;   /* same as original desktop max */
-        height: auto !important;
-        display: block !important;
-        margin: 0 auto !important;
-    }
-
-    /* ===== FULL-WIDTH CONTENT INSIDE CENTER COLUMN ===== */
-    .full-width-wrapper {
-        width: 100% !important;           /* constrained inside centered column */
-        margin: 40px 0 !important;
-        position: relative !important;
-        left: 0 !important;
-        transform: none !important;
-    }
-
-    .full-width-wrapper img {
-        width: 100% !important;
-        height: auto !important;
-        display: block !important;
-    }
-
-    /* ===== SIDE GIFS INSIDE CONTENT FLOW ===== */
+    /* SIDE GIFS NATURAL SIZE */
     .side-gif {
-        position: static !important;      /* remove desktop absolute positioning */
-        margin: 20px auto !important;     /* center in content column */
-        width: auto !important;           /* natural width */
-        max-width: 150px !important;      /* optional cap */
-        height: auto !important;          /* maintain aspect ratio */
-        display: block !important;
+        position: static;
+        margin: 30px auto;
+        width: auto;
+        max-width: none;
+        height: auto;
+        display: block;
     }
 
-    /* ===== MOBILE SIDE-BY-SIDE GIF WRAPPER ===== */
-    .mobile-gif-wrapper.side-by-side {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;                  /* allow wrapping if too wide */
-        width: 100%;
-        margin: 20px 0;
-    }
-
-    .mobile-gif-wrapper.side-by-side .side-gif {
-        width: auto !important;
-        max-width: 48% !important;        /* two gifs side-by-side */
-        height: auto !important;
-        margin: 0 !important;
-    }
-
-    /* ===== IMAGE ROWS ===== */
+    /* IMAGE ROWS */
     .image-row {
         flex-direction: row;
         gap: 10px;
-        flex-wrap: wrap;
+        flex-wrap: wrap;       /* allow wrapping if needed */
         justify-content: center;
     }
 
     .image-row img {
-        width: calc(50% - 5px);
+        width: calc(50% - 5px); /* subtract half of gap to prevent overflow */
         height: auto;
     }
+
+    /* FULL WIDTH IMAGES */
+    .full-width-wrapper {
+        width: 100%;           /* take full mobile width */
+        left: 0;
+        transform: none;       /* remove translateX centering */
+        margin: 40px 0;
+    }
+
+    .full-width-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .enter-link {
+        font-size: 30px;
+    }
+
+/* wrapper flex */
+  .mobile-gif-wrapper.side-by-side {
+    display: flex !important;      /* override any display:block */
+    flex-direction: row !important; 
+    justify-content: center;       
+    align-items: center;           
+    gap: 10px;                     
+    flex-wrap: nowrap;              
+  }
+
+  /* force side-gif sizing */
+  .mobile-gif-wrapper.side-by-side .side-gif {
+    width: auto !important;       /* let natural width work */
+    max-width: 150px;             /* caps the size */
+    height: auto !important;      
+    display: inline-block !important;
+    position: static !important;  /* remove absolute/left/right from desktop rules */
+    margin: 0;                    /* remove extra margin */
+  }
+
 }
