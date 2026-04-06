@@ -21,7 +21,7 @@ const marquees = document.querySelectorAll(".marquee");
 
 enterBtn.addEventListener("click", () => {
     intro.style.display = "none";
-    layout.style.display = "grid";
+    layout.style.display = "block"; // Changed from 'grid' to 'block'
 
     marquees.forEach(m => {
         m.style.display = "block";

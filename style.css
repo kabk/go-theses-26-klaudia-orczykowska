@@ -1,4 +1,4 @@
-/* ===== EXISTING (unchanged) ===== */
+/* ===== GLOBAL ===== */
 html, body {
     overflow-x: hidden;
 }
@@ -9,6 +9,7 @@ body {
     background-color: white;
 }
 
+/* ===== INTRO SCREEN ===== */
 #intro-screen {
     height: 100vh;
     display: flex;
@@ -16,7 +17,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
-
     text-align: center;
     background: white;
 }
@@ -47,27 +47,22 @@ body {
     font-family: Garamond, serif;
     text-decoration: underline;
     cursor: pointer;
-      text-underline-position: under;
-
+    text-underline-position: under;
 }
 
-/* hover effect: remove underline */
 .enter-link:hover {
     text-decoration: none;
 }
 
+/* ===== SINGLE COLUMN LAYOUT ===== */
 #layout {
-    display: none;
-    grid-template-columns: 200px 1fr 200px;
+    display: none; /* Toggled to block via JS */
     min-height: 100vh;
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
-.left {
-    padding: 30px 10px;
-}
-
+/* Keeps text taking the exact same space in the middle */
 .center {
     max-width: 600px;
     padding: 30px 0;
@@ -75,98 +70,36 @@ body {
     margin: 0 auto;
 }
 
-.right {
-    padding: 30px 10px;
-}
-
-
-/* TEXT BLOCKS */
+/* ===== TEXT BLOCKS ===== */
 .content-flow p {
     margin: 40px 0;
-    /* line-height: 1.6; */
 }
 
-/* IMAGES / GIFS */
-
-.gif-column {
-    display: flex;
-    flex-direction: column;    /* stack vertically */
-    align-items: center;       /* horizontal center */
-    justify-content: flex-start; /* top of column */
-    gap: 20px;
-    height: 100%;              /* full height of column */
-}
-
-/* GIF item styling */
-.gif-item {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    transform: none !important;
-}
-
-.content-flow img {
-    width: 100%;
-    margin: 20px 0;
-    display: block;
-    transition: transform 0.3s;
-}
-
-/* subtle randomness */
-.content-flow img:nth-child(odd) {
-    transform: rotate(-2deg) scale(0.98);
-}
-
-.content-flow img:nth-child(even) {
-    transform: rotate(2deg) scale(1.02);
-}
-
-/* DIVIDERS */
-.content-flow hr {
-    margin: 60px 0;
-    border: none;
-    border-top: 1px solid black;
-}
-
-/* ===== FLOATING ELEMENTS ===== */
-
-/* ===== IMAGE VARIATIONS ===== */
-
+/* ===== IMAGES / GIFS ===== */
 .content-flow img {
     max-width: 100%;
     margin: 30px 0;
     display: block;
+    transition: transform 0.3s;
 }
 
-/* LEFT SIDE IMAGE */
+/* LEFT / RIGHT ALIGNMENT (inside the flow) */
 .content-flow img.left-img {
     width: 60%;
 }
-
-/* RIGHT SIDE IMAGE */
 .content-flow img.right-img {
     width: 60%;
     margin-left: auto;
 }
 
-/* SMALL INLINE CHAOS */
+
+
 .content-flow img.small {
     width: 150px;
 }
-
-/* ROTATION (subtle chaos) */
-.content-flow img:nth-of-type(odd) {
-    transform: rotate(-2deg);
-}
-
-.content-flow img:nth-of-type(even) {
-    transform: rotate(2deg);
-}
-
-/* NORMAL images: no rotation, no scaling */
 .content-flow img.normal {
     transform: none !important;
-    width: auto;       /* optional, keeps natural size */
+    width: auto;
     max-width: 100%;
 }
 
@@ -175,7 +108,6 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    flex: 1;
 }
 
 .image-row img {
@@ -185,60 +117,64 @@ body {
     display: block;
 }
 
-/* ===== MOBILE ===== */
-
-@media (max-width: 768px) {
-    #layout {
-        grid-template-columns: 1fr;
-        padding-left: 10px;    /* left margin */
-        padding-right: 20px;   /* right margin */
-        padding-top: 80px;     /* space for top marquee */
-        padding-bottom: 80px;  /* space for bottom marquee */
-        box-sizing: border-box; /* ensures padding doesn't cause overflow */
-    }
-
-    .center {
-        margin: 0 auto;
-        padding-left: 10px;    /* extra small padding */
-        padding-right: 10px;
-    }
-
-    .image-row {
-        display: flex;
-        gap: 10px;
-    }
-
-    .image-row img {
-        flex: 1 1 0;
-        min-width: 0;       /* 🔥 CRITICAL: allows shrinking */
-        max-width: 100%;
-        height: auto;
-    }
-
-    .gif-column {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* don't center vertically */
-        align-items: center;        /* horizontal center */
-        gap: 10px;
-        margin: 0 auto;
-    }
-
-    .gif-item {
-        max-width: 80%;
-        height: auto;
-        display: block;
-    }
-
-    .enter-link {
-        font-size: 30px;
-    }
-
+/* Because we removed the grid, this math trick lets the image
+  break out of the 600px container to stretch across the full screen.
+*/
+.full-width-img {
+    /* 1. Force the width to ignore the 600px container */
+    width: 100vw !important;
+    max-width: 100vw !important;
     
+    /* 2. Position it exactly in the middle of the viewport */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) !important; /* Pulls it back half its own width */
+    
+    /* 3. Cleanup */
+    display: block;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: none;
 }
 
-/* ===== MARQUEE (unchanged) ===== */
+/* DIVIDERS */
+.content-flow hr {
+    margin: 60px 0;
+    border: none;
+    border-top: 1px solid black;
+}
+
+/* ===== TEXT STYLES ===== */
+.title {
+    font-size: 42px;
+    color: red;
+    font-family: Garamond, Times New Roman, serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.center-blue {
+    font-size: 42px;
+    font-family: Garamond, Times New Roman, serif;
+    line-height: 80%;
+    color: blue;
+    font-weight: bold;
+    text-align: center;
+}
+
+.comic {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 31px;
+}
+
+.italic { font-style: italic; }
+.big { font-size: 42px; }
+.bold { font-weight: bold; }
+.center-quote { text-align: center; }
+.small-letter-spacing { letter-spacing: -0.3px; }
+
+/* ===== MARQUEE ===== */
 .marquee {
     position: fixed;
     left: 0;
@@ -270,7 +206,7 @@ body {
     to { transform: translateX(-50%); }
 }
 
-/* ===== SCREENSAVER (UNCHANGED) ===== */
+/* ===== SCREENSAVER ===== */
 #screensaver {
     position: fixed;
     inset: 0;
@@ -285,57 +221,49 @@ body {
     text-align: center;
 }
 
-#screensaver.dark {
-    background: black;
-    color: white;
-}
+#screensaver.dark { background: black; color: white; }
+#screensaver.light { background: white; color: black; }
 
-#screensaver.light {
-    background: white;
-    color: black;
-}
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+#layout {
+        /* Change these to be EQUAL (e.g., both 15px) */
+        padding-left: 15px;    
+        padding-right: 15px;   
+        
+        padding-top: 80px;     
+        padding-bottom: 80px;  
+        box-sizing: border-box; 
+        display: block; /* Ensure it stays a block */
+    }
 
-/* ===== TEXT STYLES ===== */
+    /* This ensures the breakout image ignores the padding above */
+    .full-width-img {
+        width: 100vw !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
 
-.title {
-    font-size: 42px;
-    color: red;
-    font-family: Garamond, Times New Roman, serif;
-    text-align: center;
-    font-weight: bold;
-}
+    .center {
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0 auto;
+    }
 
-.center-blue {
-    font-size: 42px;
-    font-family: Garamond, Times New Roman, serif;
-    line-height: 80%;
-    color: blue;
-    font-weight: bold;
-    text-align: center;
-}
+    .image-row {
+        gap: 10px;
+    }
 
-.comic {
-font-family: "Comic Sans MS", "Comic Sans", cursive;
-    font-size: 31px;
+    .image-row img {
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: 100%;
+        height: auto;
+    }
 
-}
-
-.italic {
-    font-style: italic;
-}
-
-.big {
-    font-size: 42px;
-}
-
-.bold {
-font-weight: bold;
-}
-
-.center-quote {
-    text-align: center;
-}
-
-.small-letter-spacing {
-       letter-spacing: -0.3px;
+    .enter-link {
+        font-size: 30px;
+    }
 }
