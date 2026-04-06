@@ -43,7 +43,7 @@ body {
     margin: 0;
     font: inherit;
     color: red;
-    font-size: clamp(24px, 8vw, 60px);    
+    font-size: 60px;    
     font-family: Garamond, serif;
     text-decoration: underline;
     cursor: pointer;
@@ -230,6 +230,12 @@ body {
         height: auto;
         display: block;
     }
+
+    .enter-link {
+        font-size: 30px;
+    }
+
+    
 }
 
 /* ===== MARQUEE (unchanged) ===== */
