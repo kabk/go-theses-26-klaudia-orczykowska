@@ -246,31 +246,32 @@ html, body {
 
 @media (max-width: 768px) {
 
+    /* ===== LAYOUT ===== */
     #layout {
         padding: 40px 15px;
         box-sizing: border-box;
         overflow-x: hidden;
     }
 
-    /* SIDE GIFS NATURAL SIZE INSIDE CONTENT FLOW */
+    /* ===== SIDE GIFS ===== */
     .side-gif {
-        position: static !important;
-        margin: 20px auto !important;
-        width: auto !important;
-        max-width: 150px;
+        position: static !important;   /* remove desktop absolute */
+        margin: 20px auto !important;  /* center inside content */
+        width: auto !important;        /* natural width */
+        max-width: 150px;              /* optional max size */
         height: auto !important;
         display: block !important;
     }
 
-    /* SIDE-BY-SIDE GIF WRAPPER */
+    /* ===== SIDE-BY-SIDE GIF WRAPPER ===== */
     .mobile-gif-wrapper.side-by-side {
         display: flex !important;
         flex-direction: row !important;
         justify-content: center;
         align-items: center;
         gap: 10px;
-        flex-wrap: wrap; /* allows wrapping if too wide */
-        width: 100%;     /* constrained inside content */
+        flex-wrap: wrap;  /* allow wrapping if too wide */
+        width: 100%;
         margin: 20px 0;
     }
 
@@ -281,7 +282,7 @@ html, body {
         margin: 0;
     }
 
-    /* IMAGE ROWS */
+    /* ===== IMAGE ROWS ===== */
     .image-row {
         flex-direction: row;
         gap: 10px;
@@ -294,18 +295,16 @@ html, body {
         height: auto;
     }
 
-
-
-    /* FULL-WIDTH WRAPPER NOW INSIDE CENTERED COLUMN */
+    /* ===== FULL-WIDTH IMAGES INSIDE CENTERED COLUMN ===== */
     .full-width-wrapper {
-        width: 100%;      /* constrained inside center column */
+        width: 100%;       /* full width of content column */
         margin: 40px 0;
         left: 0;
-        transform: none;  /* remove full-width trick */
+        transform: none;   /* remove translateX centering hack */
     }
 
     .full-width-wrapper img {
-        width: 100%;
+        width: 100%;       /* scale to container */
         height: auto;
         display: block;
     }
