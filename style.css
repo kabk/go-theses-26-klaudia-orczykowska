@@ -253,31 +253,47 @@ html, body {
         overflow-x: hidden;
     }
 
+    /* ===== FULL WIDTH IMAGES FIX ===== */
+    .full-width-wrapper {
+        width: 100%;        /* full width of column */
+        left: 0 !important; 
+        transform: none !important; 
+        margin: 40px 0;
+        position: relative !important; /* remove desktop absolute/relative hack */
+    }
+
+    .full-width-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
     /* ===== SIDE GIFS ===== */
+    /* ALL side gifs inside content flow are now static */
     .side-gif {
-        position: static !important;   /* remove desktop absolute */
-        margin: 20px auto !important;  /* center inside content */
-        width: auto !important;        /* natural width */
-        max-width: 150px;              /* optional max size */
+        position: static !important;
+        margin: 20px auto !important;
+        width: auto !important;
+        max-width: 150px !important;
         height: auto !important;
         display: block !important;
     }
 
-    /* ===== SIDE-BY-SIDE GIF WRAPPER ===== */
+    /* ===== MOBILE SIDE-BY-SIDE GIF WRAPPER ===== */
     .mobile-gif-wrapper.side-by-side {
         display: flex !important;
         flex-direction: row !important;
         justify-content: center;
         align-items: center;
         gap: 10px;
-        flex-wrap: wrap;  /* allow wrapping if too wide */
+        flex-wrap: wrap;
         width: 100%;
         margin: 20px 0;
     }
 
     .mobile-gif-wrapper.side-by-side .side-gif {
         width: auto !important;
-        max-width: 48%;  /* two gifs side by side */
+        max-width: 48%;
         height: auto !important;
         margin: 0;
     }
@@ -293,19 +309,5 @@ html, body {
     .image-row img {
         width: calc(50% - 5px);
         height: auto;
-    }
-
-    /* ===== FULL-WIDTH IMAGES INSIDE CENTERED COLUMN ===== */
-    .full-width-wrapper {
-        width: 100%;       /* full width of content column */
-        margin: 40px 0;
-        left: 0;
-        transform: none;   /* remove translateX centering hack */
-    }
-
-    .full-width-wrapper img {
-        width: 100%;       /* scale to container */
-        height: auto;
-        display: block;
     }
 }
