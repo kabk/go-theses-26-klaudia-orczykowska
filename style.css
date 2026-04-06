@@ -251,6 +251,12 @@ html, body {
         overflow-x: hidden;    /* prevent accidental horizontal scroll */
     }
 
+    .intro-img {
+        max-width: 250px; /* Adjust this number until it looks perfect */
+        width: 80%;       /* Ensures it never hits the screen edges */
+        height: auto;
+    }
+
     /* SIDE GIFS NATURAL SIZE */
     .side-gif {
         position: static;
