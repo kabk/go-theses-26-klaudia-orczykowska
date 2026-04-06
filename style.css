@@ -1,15 +1,15 @@
-/* ===== GLOBAL ===== */
+/* ===== BASE ===== */
+
 html, body {
-    overflow-x: hidden;
-}
-
-body {
     margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
-    background-color: white;
+    background: white;
 }
 
-/* ===== INTRO SCREEN ===== */
+/* ===== INTRO ===== */
+
 #intro-screen {
     height: 100vh;
     display: flex;
@@ -17,6 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
+
     text-align: center;
     background: white;
 }
@@ -28,7 +29,6 @@ body {
 
 .intro-img {
     max-width: 200px;
-    height: auto;
 }
 
 .intro-meta {
@@ -39,124 +39,111 @@ body {
 .enter-link {
     background: none;
     border: none;
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    color: red;
-    font-size: 60px;    
+    font-size: 60px;
     font-family: Garamond, serif;
+    color: red;
     text-decoration: underline;
     cursor: pointer;
-    text-underline-position: under;
+      text-underline-position: under;
 }
 
 .enter-link:hover {
     text-decoration: none;
 }
 
-/* ===== SINGLE COLUMN LAYOUT ===== */
+/* ===== LAYOUT ===== */
+
 #layout {
-    display: none; /* Toggled to block via JS */
-    min-height: 100vh;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    display: none;
+    padding: 20px 20px; /* space for marquees */
 }
 
-/* Keeps text taking the exact same space in the middle */
 .center {
     max-width: 600px;
-    padding: 30px 0;
-    width: 100%;
     margin: 0 auto;
+    position: relative;
 }
 
-/* ===== TEXT BLOCKS ===== */
+/* ===== CONTENT ===== */
+
 .content-flow p {
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
-/* ===== IMAGES / GIFS ===== */
 .content-flow img {
     max-width: 100%;
-    margin: 30px 0;
     display: block;
-    transition: transform 0.3s;
+    margin: 30px 0;
 }
 
-/* LEFT / RIGHT ALIGNMENT (inside the flow) */
-.content-flow img.left-img {
-    width: 60%;
-}
-.content-flow img.right-img {
-    width: 60%;
-    margin-left: auto;
+/* ===== SIDE GIF SYSTEM ===== */
+
+.side-gif {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 30px auto;
 }
 
+/* DESKTOP: push to sides */
+@media (min-width: 768px) {
 
+    .side-gif {
+        position: absolute;
+        width: 120px;
+        margin: 0;
+        opacity: 0.95;
+    }
 
-.content-flow img.small {
-    width: 150px;
-}
-.content-flow img.normal {
-    transform: none !important;
-    width: auto;
-    max-width: 100%;
+    .left-gif {
+        left: -180px;
+    }
+
+    .right-gif {
+        right: -180px;
+    }
+
+    
 }
 
-.image-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-}
+/* ===== IMAGE VARIATIONS ===== */
+
+.image-row { display: flex; justify-content: center; align-items: flex-start; gap: 10px; flex: 1; } 
 
 .image-row img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+    height: 240px;   /* pick what looks good */
+    width: auto;     /* keeps proportions */
     display: block;
 }
 
-/* Because we removed the grid, this math trick lets the image
-  break out of the 600px container to stretch across the full screen.
-*/
-.full-width-img {
-    /* 1. Force the width to ignore the 600px container */
-    width: 100vw !important;
-    max-width: 100vw !important;
-    
-    /* 2. Position it exactly in the middle of the viewport */
+.full-width-wrapper {
+    width: 100vw;
+
     position: relative;
     left: 50%;
-    transform: translateX(-50%) !important; /* Pulls it back half its own width */
-    
-    /* 3. Cleanup */
-    display: block;
-    height: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border: none;
+    transform: translateX(-50%);
+
+    margin: 80px 0;
 }
 
-/* DIVIDERS */
-.content-flow hr {
-    margin: 60px 0;
-    border: none;
-    border-top: 1px solid black;
+.full-width-wrapper img {
+    width: 100%;
+    display: block;
 }
 
 /* ===== TEXT STYLES ===== */
+
 .title {
     font-size: 42px;
     color: red;
-    font-family: Garamond, Times New Roman, serif;
+    font-family: Garamond, serif;
     text-align: center;
     font-weight: bold;
 }
 
 .center-blue {
     font-size: 42px;
-    font-family: Garamond, Times New Roman, serif;
+    font-family: Garamond, serif;
     line-height: 80%;
     color: blue;
     font-weight: bold;
@@ -164,17 +151,32 @@ body {
 }
 
 .comic {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
-    font-size: 31px;
+    font-family: "Comic Sans MS", cursive;
+    font-size: 30px;
 }
 
-.italic { font-style: italic; }
-.big { font-size: 42px; }
-.bold { font-weight: bold; }
-.center-quote { text-align: center; }
-.small-letter-spacing { letter-spacing: -0.3px; }
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.big {
+    font-size: 42px;
+}
+
+.center-quote {
+    text-align: center;
+}
+
+.small-letter-spacing {
+    letter-spacing: -0.3px;
+}
 
 /* ===== MARQUEE ===== */
+
 .marquee {
     position: fixed;
     left: 0;
@@ -185,7 +187,7 @@ body {
     font-size: 21px;
     background: blue;
     color: white;
-    display: none;
+    display: none;  /* show via JS when needed */
 }
 
 .marquee.top { top: 0; }
@@ -193,72 +195,70 @@ body {
 
 .marquee-inner-top {
     display: inline-block;
-    animation: scroll 15s linear infinite;
+    padding-right: 100%;   /* ensures smooth looping */
+    animation: scroll-top 50s linear infinite;
 }
 
 .marquee-inner-bottom {
     display: inline-block;
-    animation: scroll 15s linear reverse infinite;
+    padding-right: 100%;   /* ensures smooth looping */
+    animation: scroll-bottom 50s linear infinite;
 }
 
-@keyframes scroll {
+/* Keyframes for scrolling */
+@keyframes scroll-top {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to { transform: translateX(-100%); }
 }
 
-/* ===== SCREENSAVER ===== */
-#screensaver {
-    position: fixed;
-    inset: 0;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+@keyframes scroll-bottom {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
 }
 
-#sentence-box {
-    font-size: 10vw;
-    text-align: center;
-}
-
-#screensaver.dark { background: black; color: white; }
-#screensaver.light { background: white; color: black; }
-
-/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-#layout {
-        /* DELETE display: block; from here! */
-        padding-left: 15px;    
-        padding-right: 15px;   
-        padding-top: 80px;     
-        padding-bottom: 80px;  
-        box-sizing: border-box; 
+
+    #layout {
+        padding: 40px 15px;  /* reduce top padding slightly for mobile */
+        box-sizing: border-box; /* ensure padding included in width calculations */
+        overflow-x: hidden;    /* prevent accidental horizontal scroll */
     }
 
-    /* This ensures the breakout image ignores the padding above */
-    .full-width-img {
-        width: 100vw !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+    /* SIDE GIFS NATURAL SIZE */
+    .side-gif {
+        position: static;
+        margin: 30px auto;
+        width: auto;
+        max-width: none;
+        height: auto;
+        display: block;
     }
 
-    .center {
-        padding-left: 0;
-        padding-right: 0;
-        margin: 0 auto;
-    }
-
+    /* IMAGE ROWS */
     .image-row {
+        flex-direction: row;
         gap: 10px;
+        flex-wrap: wrap;       /* allow wrapping if needed */
+        justify-content: center;
     }
 
     .image-row img {
-        flex: 1 1 0;
-        min-width: 0;
-        max-width: 100%;
+        width: calc(50% - 5px); /* subtract half of gap to prevent overflow */
         height: auto;
+    }
+
+    /* FULL WIDTH IMAGES */
+    .full-width-wrapper {
+        width: 100%;           /* take full mobile width */
+        left: 0;
+        transform: none;       /* remove translateX centering */
+        margin: 40px 0;
+    }
+
+    .full-width-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
     .enter-link {
