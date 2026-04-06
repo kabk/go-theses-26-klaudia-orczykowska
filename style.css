@@ -227,14 +227,12 @@ body {
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
 #layout {
-        /* Change these to be EQUAL (e.g., both 15px) */
+        /* DELETE display: block; from here! */
         padding-left: 15px;    
         padding-right: 15px;   
-        
         padding-top: 80px;     
         padding-bottom: 80px;  
         box-sizing: border-box; 
-        display: block; /* Ensure it stays a block */
     }
 
     /* This ensures the breakout image ignores the padding above */
