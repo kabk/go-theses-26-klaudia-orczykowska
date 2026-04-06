@@ -23,12 +23,12 @@ html, body {
 }
 
 .intro-title {
-    font-size: 48px;
+    font-size: 60px;
     font-family: Garamond, serif;
 }
 
 .intro-img {
-    max-width: 200px;
+    max-width: 400px;
 }
 
 .intro-meta {
@@ -74,6 +74,27 @@ html, body {
     max-width: 100%;
     display: block;
     margin: 30px 0;
+}
+
+.full-width-banner {
+    width: 100vw;           /* full viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;   /* stretch full viewport width */
+    margin-right: -50vw;
+    background-color: red;   /* red background */
+    box-sizing: border-box;  /* ensure padding included in width */
+    align-items: center;     /* vertical centering */
+    text-align: center;      /* fallback for multi-line text */
+}
+
+.full-width-banner .banner-title {
+    font-family: Arial Narrow;
+    font-size: 24px;
+    color: black;           /* text color */
+    line-height: 1.2;       /* tighter line spacing */
+    margin: 0;
 }
 
 /* ===== SIDE GIF SYSTEM ===== */
@@ -175,6 +196,12 @@ html, body {
     letter-spacing: -0.3px;
 }
 
+.red {
+    color: red;
+}
+
+
+
 /* ===== MARQUEE ===== */
 
 .marquee {
@@ -264,4 +291,25 @@ html, body {
     .enter-link {
         font-size: 30px;
     }
+
+/* wrapper flex */
+  .mobile-gif-wrapper.side-by-side {
+    display: flex !important;      /* override any display:block */
+    flex-direction: row !important; 
+    justify-content: center;       
+    align-items: center;           
+    gap: 10px;                     
+    flex-wrap: nowrap;              
+  }
+
+  /* force side-gif sizing */
+  .mobile-gif-wrapper.side-by-side .side-gif {
+    width: auto !important;       /* let natural width work */
+    max-width: 150px;             /* caps the size */
+    height: auto !important;      
+    display: inline-block !important;
+    position: static !important;  /* remove absolute/left/right from desktop rules */
+    margin: 0;                    /* remove extra margin */
+  }
+
 }
