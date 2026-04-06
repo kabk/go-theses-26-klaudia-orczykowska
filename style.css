@@ -9,8 +9,54 @@ body {
     background-color: white;
 }
 
+#intro-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    text-align: center;
+    background: white;
+}
+
+.intro-title {
+    font-size: 48px;
+    font-family: Garamond, serif;
+}
+
+.intro-img {
+    max-width: 200px;
+    height: auto;
+}
+
+.intro-meta {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+
+
+.enter-link {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: black;
+    font-size: 42px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* hover effect: remove underline */
+.enter-link:hover {
+    text-decoration: none;
+}
+
 #layout {
-    display: grid;
+    display: none;
     grid-template-columns: 200px 1fr 200px;
     min-height: 100vh;
     padding-top: 30px;
@@ -156,6 +202,18 @@ body {
         padding-right: 10px;
     }
 
+    .image-row {
+        display: flex;
+        gap: 10px;
+    }
+
+    .image-row img {
+        flex: 1 1 0;
+        min-width: 0;       /* 🔥 CRITICAL: allows shrinking */
+        max-width: 100%;
+        height: auto;
+    }
+
     .gif-column {
         width: 100%;
         display: flex;
@@ -184,6 +242,7 @@ body {
     font-size: 21px;
     background: blue;
     color: white;
+    display: none;
 }
 
 .marquee.top { top: 0; }
@@ -266,6 +325,10 @@ font-family: "Comic Sans MS", "Comic Sans", cursive;
 font-weight: bold;
 }
 
-.center {
+.center-quote {
     text-align: center;
+}
+
+.small-letter-spacing {
+       letter-spacing: -0.3px;
 }
