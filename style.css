@@ -246,40 +246,59 @@ html, body {
 @media (max-width: 768px) {
 
     #layout {
-        padding: 40px 15px;  /* reduce top padding slightly for mobile */
-        box-sizing: border-box; /* ensure padding included in width calculations */
-        overflow-x: hidden;    /* prevent accidental horizontal scroll */
+        padding: 40px 15px;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 
-    /* SIDE GIFS NATURAL SIZE */
+    /* SIDE GIFS NATURAL SIZE INSIDE CONTENT FLOW */
     .side-gif {
-        position: static;
-        margin: 30px auto;
-        width: auto;
-        max-width: none;
-        height: auto;
-        display: block;
+        position: static !important;
+        margin: 20px auto !important;
+        width: auto !important;
+        max-width: 150px;
+        height: auto !important;
+        display: block !important;
+    }
+
+    /* SIDE-BY-SIDE GIF WRAPPER */
+    .mobile-gif-wrapper.side-by-side {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap; /* allows wrapping if too wide */
+        width: 100%;     /* constrained inside content */
+        margin: 20px 0;
+    }
+
+    .mobile-gif-wrapper.side-by-side .side-gif {
+        width: auto !important;
+        max-width: 48%;  /* two gifs side by side */
+        height: auto !important;
+        margin: 0;
     }
 
     /* IMAGE ROWS */
     .image-row {
         flex-direction: row;
         gap: 10px;
-        flex-wrap: wrap;       /* allow wrapping if needed */
+        flex-wrap: wrap;
         justify-content: center;
     }
 
     .image-row img {
-        width: calc(50% - 5px); /* subtract half of gap to prevent overflow */
+        width: calc(50% - 5px);
         height: auto;
     }
 
-    /* FULL WIDTH IMAGES */
+    /* FULL-WIDTH WRAPPER NOW INSIDE CENTERED COLUMN */
     .full-width-wrapper {
-        width: 100%;           /* take full mobile width */
-        left: 0;
-        transform: none;       /* remove translateX centering */
+        width: 100%;      /* constrained inside center column */
         margin: 40px 0;
+        left: 0;
+        transform: none;  /* remove full-width trick */
     }
 
     .full-width-wrapper img {
@@ -287,29 +306,4 @@ html, body {
         height: auto;
         display: block;
     }
-
-    .enter-link {
-        font-size: 30px;
-    }
-
-/* wrapper flex */
-  .mobile-gif-wrapper.side-by-side {
-    display: flex !important;      /* override any display:block */
-    flex-direction: row !important; 
-    justify-content: center;       
-    align-items: center;           
-    gap: 10px;                     
-    flex-wrap: nowrap;              
-  }
-
-  /* force side-gif sizing */
-  .mobile-gif-wrapper.side-by-side .side-gif {
-    width: auto !important;       /* let natural width work */
-    max-width: 150px;             /* caps the size */
-    height: auto !important;      
-    display: inline-block !important;
-    position: static !important;  /* remove absolute/left/right from desktop rules */
-    margin: 0;                    /* remove extra margin */
-  }
-
 }
