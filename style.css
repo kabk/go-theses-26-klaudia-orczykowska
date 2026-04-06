@@ -246,30 +246,7 @@ html, body {
 
 @media (max-width: 768px) {
 
-    /* ===== LAYOUT ===== */
-    #layout {
-        padding: 40px 15px;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-
-    /* ===== FULL WIDTH IMAGES FIX ===== */
-    .full-width-wrapper {
-        width: 100%;        /* full width of column */
-        left: 0 !important; 
-        transform: none !important; 
-        margin: 40px 0;
-        position: relative !important; /* remove desktop absolute/relative hack */
-    }
-
-    .full-width-wrapper img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    /* ===== SIDE GIFS ===== */
-    /* ALL side gifs inside content flow are now static */
+    /* Side GIFs static inside content flow */
     .side-gif {
         position: static !important;
         margin: 20px auto !important;
@@ -279,7 +256,7 @@ html, body {
         display: block !important;
     }
 
-    /* ===== MOBILE SIDE-BY-SIDE GIF WRAPPER ===== */
+    /* Mobile side-by-side wrapper */
     .mobile-gif-wrapper.side-by-side {
         display: flex !important;
         flex-direction: row !important;
@@ -293,21 +270,22 @@ html, body {
 
     .mobile-gif-wrapper.side-by-side .side-gif {
         width: auto !important;
-        max-width: 48%;
+        max-width: 48% !important;
+        margin: 0 !important;
+    }
+
+    /* Full-width wrapper constrained inside content */
+    .full-width-wrapper {
+        width: 100% !important;
+        margin: 40px 0 !important;
+        position: relative !important;
+        left: 0 !important;
+        transform: none !important;
+    }
+
+    .full-width-wrapper img {
+        width: 100% !important;
         height: auto !important;
-        margin: 0;
-    }
-
-    /* ===== IMAGE ROWS ===== */
-    .image-row {
-        flex-direction: row;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .image-row img {
-        width: calc(50% - 5px);
-        height: auto;
+        display: block !important;
     }
 }
