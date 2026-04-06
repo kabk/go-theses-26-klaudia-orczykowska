@@ -254,6 +254,14 @@ html, body {
         overflow-x: hidden;
     }
 
+        #intro-screen .intro-img {
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+
     /* ===== SIDE GIFS FIX ===== */
     .side-gif {
         position: static !important;      /* remove desktop absolute positioning */
