@@ -73,7 +73,7 @@ html, body {
 .content-flow img {
     max-width: 100%;
     display: block;
-    margin: 30px 0;
+    margin: 30px auto;
 }
 
 .full-width-banner {
@@ -152,7 +152,54 @@ html, body {
     display: block;
 }
 
+/* ===== TRIPLE IMAGE ROW ===== */
+.image-row.triple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 40px 0;
+}
+
+.image-row.triple img {
+    height: auto;
+    object-fit: contain;
+}
+
+/* center image */
+.image-row.triple .center-img {
+    height: auto;        /* 🔑 THIS unlocks width scaling */
+    width: 500px;    
+    z-index: 2;
+}
+
+/* side images */
+.image-row.triple .side-img {
+    max-width: 250px;
+    width: auto;
+}
+
+/* push them outward symmetrically */
+.image-row.triple .left {
+    transform: translateX(-30%);
+}
+
+.image-row.triple .right {
+    transform: translateX(30%);
+}
+
+
+
 /* ===== TEXT STYLES ===== */
+
+
+.full-width-text {
+    width: 90vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 80px 0;
+}
 
 .title {
     font-size: 42px;
@@ -188,6 +235,10 @@ html, body {
     font-size: 42px;
 }
 
+.medium {
+    font-size: 24px;
+}
+
 .center-quote {
     text-align: center;
 }
@@ -200,6 +251,25 @@ html, body {
     color: red;
 }
 
+.arial-narrow {
+    font-family: Arial Narrow, sans-serif;
+}
+
+.pink {
+    color: pink;
+}
+
+.grey {
+    color: grey;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.impact {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 
 
 /* ===== MARQUEE ===== */
@@ -318,5 +388,16 @@ html, body {
     margin: 0 !important;
     position: static !important;
   }
+
+      .image-row.triple {
+        flex-direction: column;
+    }
+
+    .image-row.triple .center-img,
+    .image-row.triple .side-img {
+        width: 100%;
+        max-width: 100%;
+        transform: none;
+    }
 
 }
