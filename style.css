@@ -440,8 +440,8 @@ html, body {
   }
 
       .image-row.triple {
-        flex-direction: column;
-    }
+  flex-direction: row !important; 
+    flex-wrap: nowrap !important;    /* CRITICAL: Prevents stacking */    }
 
     .image-row.triple .center-img,
     .image-row.triple .side-img {
