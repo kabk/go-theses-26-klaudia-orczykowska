@@ -129,12 +129,35 @@ html, body {
 
 /* ===== IMAGE VARIATIONS ===== */
 
-.image-row { display: flex; justify-content: center; align-items: flex-start; gap: 10px; flex: 1; } 
+.image-row { 
+    display: flex; 
+    justify-content: 
+    center; align-items: 
+    flex-start; gap: 10px; 
+    flex: 1; 
+    margin: 40px 0;} 
 
 .image-row img {
     height: 240px;   /* pick what looks good */
     width: auto;     /* keeps proportions */
     display: block;
+}
+
+/* Small gifs row: tight and small */
+.image-row.small {
+    display: flex;
+    justify-content: center;   /* center the gifs */
+    align-items: center;       /* vertical alignment */
+    gap: 4px;                  /* tiny spacing */
+    flex-wrap: nowrap;          /* prevent wrapping */
+}
+
+.image-row.small img {
+    height: 80px;              /* small height */
+    width: auto;               /* maintain aspect ratio */
+    flex-shrink: 0;            /* prevent squishing */
+    display: inline-block;     /* for inline alignment */
+    margin: 0;                 /* remove extra margins */
 }
 
 .full-width-wrapper {
@@ -359,11 +382,23 @@ html, body {
         flex-wrap: wrap;       /* allow wrapping if needed */
         justify-content: center;
     }
-
-    .image-row img {
-        width: calc(50% - 5px); /* subtract half of gap to prevent overflow */
+   /* Normal image rows (not small) */
+    .image-row:not(.small) img {
+        width: calc(50% - 5px); /* responsive width for normal rows */
         height: auto;
     }
+
+    /* Small gif rows stay tiny and tight */
+    .image-row.small {
+        gap: 4px;        /* tight spacing */
+        flex-wrap: nowrap; /* don't let them wrap */
+        justify-content: center; /* center them */
+    }
+
+.image-row.small img {
+    width: auto !important;    /* override mobile width */
+    height: 80px !important;
+}
 
     /* FULL WIDTH IMAGES */
     .full-width-wrapper {
