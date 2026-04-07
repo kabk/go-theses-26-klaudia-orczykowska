@@ -226,7 +226,6 @@ html, body {
 
 .title {
     font-size: 42px;
-    color: red;
     font-family: Garamond, serif;
     text-align: center;
     font-weight: bold;
@@ -438,16 +437,24 @@ html, body {
     margin: 0 !important;
     position: static !important;
   }
+.image-row.triple {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
 
-      .image-row.triple {
-  flex-direction: row !important; 
-    flex-wrap: nowrap !important;    /* CRITICAL: Prevents stacking */    }
+/* center image = biggest */
+.image-row.triple .center-img {
+    width: 40%;     /* main focus */
+    height: auto;
+}
 
-    .image-row.triple .center-img,
-    .image-row.triple .side-img {
-        width: 100%;
-        max-width: 100%;
-        transform: none;
-    }
+/* side gifs = smaller */
+.image-row.triple .side-img {
+    width: 20%;     /* fits screen */
+    height: auto;
+}
 
 }
