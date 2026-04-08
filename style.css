@@ -217,11 +217,16 @@ html, body {
 
 
 .full-width-text {
-    width: 90vw;
+    width: 70vw;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     margin: 80px 0;
+}
+
+.red-background {
+    background-color: red;
+    padding: 10px;
 }
 
 .title {
@@ -270,6 +275,10 @@ html, body {
 
 .big {
     font-size: 42px;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 .medium {
@@ -398,6 +407,7 @@ html, body {
     width: auto !important;    /* override mobile width */
     height: 80px !important;
 }
+
 
     /* FULL WIDTH IMAGES */
     .full-width-wrapper {
