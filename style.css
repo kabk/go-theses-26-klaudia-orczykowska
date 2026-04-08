@@ -320,6 +320,10 @@ html, body {
     color: grey;
 }
 
+.blue {
+    color: blue;
+}
+
 .justify {
     text-align: justify;
 }
