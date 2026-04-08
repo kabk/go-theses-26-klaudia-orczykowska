@@ -211,6 +211,17 @@ html, body {
     transform: translateX(30%);
 }
 
+.image-row.full-split {
+    display: flex;
+    width: 100%;
+}
+
+.image-row.full-split img {
+    width: 50%;
+    height: auto;
+    display: block;
+}
+
 
 
 /* ===== TEXT STYLES ===== */
